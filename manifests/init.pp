@@ -33,9 +33,13 @@ class nano
     $conflines=['']
 )
 {
+# Rationale for this is explained in init.pp of the sshd module
+if hiera('manage_nano') != 'false' {
+
     include nano::install
 
     class { 'nano::config':
         conflines => $conflines,
     }
+}
 }
