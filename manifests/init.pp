@@ -11,22 +11,22 @@
 #
 # == Examples
 #
-# class { 'nano':
-#   conflines => [ 'include /usr/share/nano/sh.nanorc',
-#                  'set fill 80',
-#                  'set tabsize 4',
-#                  'set tabstospaces'
-# }
+#   class { 'nano':
+#       conflines => [ 'include /usr/share/nano/sh.nanorc',
+#                      'set fill 80',
+#                      'set tabsize 4',
+#                      'set tabstospaces'
+#   }
 #
 # == Authors
 #
 # Samuli Seppänen <samuli.seppanen@gmail.com>
+#
 # Samuli Seppänen <samuli@openvpn.net>
 #
 # == License
 #
-# BSD-lisence
-# See file LICENSE for details
+# BSD-license. See file LICENSE for details.
 #
 class nano
 (
