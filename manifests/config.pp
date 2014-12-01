@@ -5,9 +5,18 @@
 #
 class nano::config
 (
-    $conflines=['']
+    $fill,
+    $tabsize,
+    $tabstospaces,
 )
 {
+
+    if $tabstospaces == 'true' {
+        $tabstospaces_line = 'set tabstospaces'
+    } else {
+        $tabstospaces_line = ''
+    }
+
     file { 'nano-nanorc':
         ensure => present,
         name => '/etc/nanorc',
