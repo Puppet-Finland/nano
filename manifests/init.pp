@@ -6,12 +6,15 @@
 #
 # == Parameters
 #
+# [*manage*]
+#   Whether to manage nano with Puppet or not. Valid values are 'yes' (default) 
+#   and 'no'.
 # [*fill*]
-#   Maximum page width. Used with manual justify (Ctrl-J). Defaults to '80'.
+#   Maximum page width. Used with manual justify (Ctrl-J). Defaults to 80.
 # [*tabsize*]
-#   Size of a tab in characters. Defaults to '4'.
+#   Size of a tab in characters. Defaults to 4.
 # [*tabstospaces*]
-#   Convert typed tabs to spaces. Valid values 'true' (default) and 'false'.
+#   Convert typed tabs to spaces. Valid values true (default) and false.
 #
 # == Authors
 #
@@ -25,19 +28,20 @@
 #
 class nano
 (
-    $fill='80',
-    $tabsize='4',
-    $tabstospaces='true'
+    $manage='yes',
+    $fill=80,
+    $tabsize=4,
+    $tabstospaces=true
 )
 {
-# Rationale for this is explained in init.pp of the sshd module
-if hiera('manage_nano', 'true') != 'false' {
 
-    include nano::install
+if $manage == 'yes' {
 
-    class { 'nano::config':
-        fill => $fill,
-        tabsize => $tabsize,
+    include ::nano::install
+
+    class { '::nano::config':
+        fill         => $fill,
+        tabsize      => $tabsize,
         tabstospaces => $tabstospaces,
     }
 }

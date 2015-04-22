@@ -3,9 +3,9 @@
 #
 # Install nano
 #
-class nano::install {
+class nano::install inherits nano::params {
     package { 'nano':
-        name => 'nano',
         ensure => installed,
+        name   => $::nano::params::package_name,
     }
 }

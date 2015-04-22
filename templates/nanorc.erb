@@ -2,4 +2,5 @@
 
 set tabsize <%= @tabsize %>
 set fill <%= @fill %>
-<%= @tabstospaces_line %>
+<% if @tabstospaces_line %><%= @tabstospaces_line %><% end -%>
+
