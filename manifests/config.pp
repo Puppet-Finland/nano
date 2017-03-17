@@ -5,9 +5,9 @@
 #
 class nano::config
 (
-    $fill,
-    $tabsize,
-    $tabstospaces,
+    Integer        $fill,
+    Integer[0,16]  $tabsize,
+    Boolean        $tabstospaces,
 
 ) inherits nano::params
 {

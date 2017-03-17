@@ -7,8 +7,8 @@
 # == Parameters
 #
 # [*manage*]
-#   Whether to manage nano with Puppet or not. Valid values are 'yes' (default) 
-#   and 'no'.
+#   Whether to manage nano with Puppet or not. Valid values are true (default) 
+#   and false.
 # [*fill*]
 #   Maximum page width. Used with manual justify (Ctrl-J). Defaults to 80.
 # [*tabsize*]
@@ -28,14 +28,14 @@
 #
 class nano
 (
-    $manage='yes',
-    $fill=80,
-    $tabsize=4,
-    $tabstospaces=true
+    Boolean $manage = true,
+            $fill = 80,
+            $tabsize = 4,
+            $tabstospaces = true
 )
 {
 
-if $manage == 'yes' {
+if $manage {
 
     include ::nano::install
 
