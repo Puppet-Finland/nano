@@ -5,21 +5,16 @@ A puppet module for installing and configuring the nano editor
 
 # Module usage
 
-* [Class: nano](manifests/init.pp)
+Simple usage with default settings (fill=80, tabsize=4, tabstospaces=true:
 
-# Dependencies
+    include ::nano
 
-See [metadata.json](metadata.json).
+Customize nano configuration:
 
-# Operating system support
+    class { '::nano':
+      fill         => 72,
+      tabsize      => 4,
+      tabstospaces => true,
+    }
 
-This module has been tested on
-
-* Ubuntu 12.04 and 14.04
-* Debian 7-8
-* CentOS 6-7
-
-Other *NIX-like operating system should work with small modifications.
-
-For details see [params.pp](manifests/params.pp).
-
+For details see [init.pp](manifests/init.pp).
