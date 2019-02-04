@@ -25,5 +25,6 @@ class nano::config
         owner   => $::os::params::adminuser,
         group   => $::os::params::admingroup,
         mode    => '0644',
+        require => Package['nano'],
     }
 }
